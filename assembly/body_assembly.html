@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>SplitMatrix50 組み立て順序</title>
+<style>
+  /* A4縦1枚に収める印刷用レイアウト */
+  @page { size: A4; margin: 12mm; }
+  :root {
+    --ink: #1f2328;
+    --sub: #57606a;
+    --line: #d0d7de;
+    --navy: #0f3d7a;
+    --red: #b3171d;
+    --red-bg: #fdecec;
+    --step-bg: #f6f8fa;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; color: var(--ink); }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 186mm; height: 268mm; display: flex; flex-direction: column; }
+
+  header { border-bottom: 3px solid var(--navy); padding-bottom: 2.5mm; margin-bottom: 3.5mm; }
+  header .product { font-size: 10pt; color: var(--sub); letter-spacing: 0.05em; }
+  header h1 { margin: 0; font-size: 21pt; line-height: 1.3; color: var(--navy); }
+  header .lead { margin: 1mm 0 0; font-size: 11pt; }
+  header .lead strong { color: var(--red); }
+
+  .before {
+    border: 1.5px solid var(--line); border-radius: 2mm;
+    padding: 2mm 4mm; margin-bottom: 4mm; font-size: 10pt;
+  }
+  .before b { color: var(--navy); margin-right: 2mm; }
+
+  .step {
+    display: grid; grid-template-columns: 16mm 1fr; column-gap: 4mm;
+    background: var(--step-bg); border: 1px solid var(--line); border-radius: 2.5mm;
+    padding: 3.5mm 4mm;
+  }
+  .badge {
+    width: 16mm; height: 16mm; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    line-height: 1;
+  }
+  .badge small { font-size: 6.5pt; letter-spacing: 0.1em; }
+  .badge span { font-size: 17pt; font-weight: 700; margin-top: 0.5mm; }
+  .step h2 { margin: 0 0 1mm; font-size: 14pt; line-height: 1.4; }
+  .step p { margin: 0; font-size: 11pt; }
+  .step p.main { font-weight: 600; }
+
+  .warn {
+    margin-top: 2.5mm; padding: 2mm 3.5mm;
+    background: var(--red-bg); border-left: 4px solid var(--red); border-radius: 1mm;
+    font-size: 10pt;
+  }
+  .warn b { color: var(--red); margin-right: 1.5mm; }
+
+  .guide { grid-column: 1 / -1; margin-top: 2.5mm; }
+  .step p.note { font-size: 9.5pt; color: var(--sub); }
+  .guide img { width: 88%; margin: 0 auto; display: block; border-radius: 1.5mm; }
+
+  .arrow {
+    width: 0; height: 0; margin: 1.5mm auto;
+    border-left: 7mm solid transparent; border-right: 7mm solid transparent;
+    border-top: 4.5mm solid var(--navy);
+  }
+
+  footer {
+    margin-top: auto; padding-top: 3mm; border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 4mm; font-size: 9pt; color: var(--sub);
+  }
+  footer img { width: 15mm; height: 15mm; }
+  footer .url { color: var(--ink); word-break: break-all; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="product">SplitMatrix50</div>
+    <h1>ボディの組み立て順序</h1>
+    <p class="lead">キースイッチを取り付けるときは、<strong>必ず以下の順番</strong>で作業してください。</p>
+  </header>
+
+  <div class="before">
+    <b>作業の前に</b>USBケーブルを外し、スライドスイッチをOFFにしてください。
+  </div>
+
+  <section class="step">
+    <div class="badge"><small>STEP</small><span>1</span></div>
+    <div>
+      <h2>上面ネジを外して、基板を取り出す</h2>
+      <p class="main">上面ネジを全て外し、上面ボディを外し、基板を取り出し、基板裏側が見える状態にしてください。</p>
+      <div class="warn"><b>注意</b>底面ネジの取り外しはお勧めしません。底面ネジはスペーサーとの締め付けがうまくいかないケースが多く、上面ネジを外すことを推奨します。</div>
+    </div>
+  </section>
+
+  <div class="arrow"></div>
+
+  <section class="step">
+    <div class="badge"><small>STEP</small><span>2</span></div>
+    <div>
+      <h2>キースイッチの取付け</h2>
+      <p class="main">キースイッチ（Kailh Choc V2）は奥までしっかり差し込んでください。</p>
+      <p class="note">左手側・右手側 各24個</p>
+      <div class="warn"><b>注意</b>基板が浮いた状態だと、この後、ボディが浮いてしまう原因となります。</div>
+    </div>
+    <div class="guide"><img src="../img/manual_keyswitch_install_guide.png" alt="キースイッチ取付けガイド"></div>
+  </section>
+
+  <div class="arrow"></div>
+
+  <section class="step">
+    <div class="badge"><small>STEP</small><span>3</span></div>
+    <div>
+      <h2>底面ボディの取り付け</h2>
+      <p class="main">キースイッチを取り付けた上面ボディと底面ボディを合わせ、上面ネジを全て取り付けてください。</p>
+    </div>
+  </section>
+
+  <footer>
+    <img src="../img/QR_MANUAL.png" alt="取扱説明書QRコード">
+    <div>
+      詳しい手順や注意事項は、最新の取扱説明書をご確認ください。<br>
+      <span class="url">https://github.com/misshii3/zmk-smatrix/blob/main/MANUAL.md</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
