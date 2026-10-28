@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="660" viewBox="0 0 800 660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, sans-serif">
+  <!-- SplitMatrix50 取扱説明書 6.10.3 LED表示の見方 用イラスト。PNGは rsvg-convert で生成する -->
+  <defs>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <!-- 光っているLED（色ごとに外側のぼかし＋本体） -->
+    <g id="led-green"><circle r="14" fill="#22c55e" opacity="0.6" filter="url(#glow)"/><circle r="10" fill="#22c55e"/></g>
+    <g id="led-yellow"><circle r="14" fill="#e0a800" opacity="0.6" filter="url(#glow)"/><circle r="10" fill="#e0a800"/></g>
+    <g id="led-red"><circle r="14" fill="#ef4444" opacity="0.6" filter="url(#glow)"/><circle r="10" fill="#ef4444"/></g>
+    <g id="led-blue"><circle r="14" fill="#3b82f6" opacity="0.6" filter="url(#glow)"/><circle r="10" fill="#3b82f6"/></g>
+    <!-- 消灯 -->
+    <g id="led-off"><circle r="10" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/></g>
+  </defs>
+
+  <rect width="800" height="660" fill="#ffffff"/>
+
+  <!-- ① 起動時の点滅 -->
+  <text x="20" y="32" font-size="19" font-weight="bold" fill="#111827">① 起動時の点滅（スイッチON／USB接続時）：短く2回点滅して消灯</text>
+
+  <rect x="20" y="50" width="250" height="255" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+  <text x="145" y="80" font-size="16" font-weight="bold" fill="#111827" text-anchor="middle">1回目の点滅：電池残量（目安）</text>
+  <text x="145" y="108" font-size="14" fill="#4b5563" text-anchor="middle">左右それぞれ自分の残量</text>
+  <use href="#led-green" x="50" y="145"/>
+  <text x="72" y="151" font-size="16" fill="#111827">緑：30%以上</text>
+  <use href="#led-yellow" x="50" y="190"/>
+  <text x="72" y="196" font-size="16" fill="#111827">黄：20〜30%</text>
+  <use href="#led-red" x="50" y="235"/>
+  <text x="72" y="241" font-size="16" fill="#111827">赤：20%未満</text>
+
+  <line x1="276" y1="177" x2="304" y2="177" stroke="#6b7280" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="312" y="50" width="340" height="255" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+  <text x="482" y="80" font-size="17" font-weight="bold" fill="#111827" text-anchor="middle">2回目の点滅：接続状態</text>
+  <text x="332" y="108" font-size="14" font-weight="bold" fill="#4b5563">左手側（親）：PCとの接続</text>
+  <use href="#led-blue" x="347" y="132"/>
+  <text x="369" y="138" font-size="16" fill="#111827">青：PCと接続済み</text>
+  <use href="#led-yellow" x="347" y="164"/>
+  <text x="369" y="170" font-size="16" fill="#111827">黄：ペアリング待ち</text>
+  <use href="#led-red" x="347" y="196"/>
+  <text x="369" y="202" font-size="16" fill="#111827">赤：PCと未接続</text>
+  <line x1="332" y1="211" x2="632" y2="211" stroke="#d1d5db"/>
+  <text x="332" y="231" font-size="14" font-weight="bold" fill="#4b5563">右手側（子）：左手側との接続</text>
+  <use href="#led-blue" x="347" y="254"/>
+  <text x="369" y="260" font-size="16" fill="#111827">青：左手側と接続済み</text>
+  <use href="#led-red" x="347" y="282"/>
+  <text x="369" y="288" font-size="16" fill="#111827">赤：左手側と未接続</text>
+
+  <line x1="658" y1="177" x2="686" y2="177" stroke="#6b7280" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="694" y="50" width="86" height="255" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+  <use href="#led-off" x="737" y="165"/>
+  <text x="737" y="205" font-size="16" fill="#111827" text-anchor="middle">消灯</text>
+
+  <!-- ② 充電中の点灯 -->
+  <text x="20" y="352" font-size="19" font-weight="bold" fill="#111827">② 充電中の点灯（スイッチON＋USB接続時）</text>
+
+  <rect x="20" y="370" width="760" height="80" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+  <use href="#led-green" x="50" y="410"/>
+  <text x="72" y="416" font-size="16" fill="#111827">緑：点灯し続ける（充電中）</text>
+  <line x1="290" y1="410" x2="330" y2="410" stroke="#6b7280" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <use href="#led-off" x="356" y="410"/>
+  <text x="378" y="416" font-size="16" fill="#111827">消灯（満充電）</text>
+  <text x="520" y="416" font-size="14" fill="#b91c1c">※起動時の緑の点滅とは別です</text>
+
+  <!-- ③ 点滅の例 -->
+  <text x="20" y="492" font-size="19" font-weight="bold" fill="#111827">③ 起動時の点滅の例</text>
+
+  <rect x="20" y="510" width="760" height="135" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+  <text x="40" y="554" font-size="16" font-weight="bold" fill="#111827">左手側</text>
+  <use href="#led-green" x="125" y="548"/>
+  <text x="150" y="554" font-size="16" fill="#6b7280">→</text>
+  <use href="#led-blue" x="185" y="548"/>
+  <text x="210" y="554" font-size="16" fill="#6b7280">→</text>
+  <use href="#led-off" x="245" y="548"/>
+  <text x="280" y="554" font-size="16" fill="#111827">緑→青→消灯：残量30%以上・PCと接続済み</text>
+  <text x="280" y="574" font-size="13" fill="#6b7280">（右手側との接続状態は、左手側のLEDには表示されません）</text>
+
+  <text x="40" y="614" font-size="16" font-weight="bold" fill="#111827">右手側</text>
+  <use href="#led-green" x="125" y="608"/>
+  <text x="150" y="614" font-size="16" fill="#6b7280">→</text>
+  <use href="#led-red" x="185" y="608"/>
+  <text x="210" y="614" font-size="16" fill="#6b7280">→</text>
+  <use href="#led-off" x="245" y="608"/>
+  <text x="280" y="614" font-size="16" fill="#111827">緑→赤→消灯：残量30%以上・左手側と未接続</text>
+  <text x="280" y="634" font-size="13" fill="#6b7280">（起動した直後は、まだ左右がつながっていないため、よくあります）</text>
+</svg>
